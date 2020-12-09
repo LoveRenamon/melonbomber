@@ -10,11 +10,11 @@ GM.Rounds = GAMEMODE and GAMEMODE.Rounds or 0
 
 team.SetUp(1, "Spectators", Color(150, 150, 150))
 
-// STATES
-// 0 WAITING FOR PLAYERS
-// 1 STARTING ROUND
-// 2 PLAYING
-// 3 END GAME RESET TIME
+-- STATES
+-- 0 WAITING FOR PLAYERS
+-- 1 STARTING ROUND
+-- 2 PLAYING
+-- 3 END GAME RESET TIME
 
 function GM:GetGameState()
 	return self.GameState
@@ -75,7 +75,7 @@ end
 function GM:SetupRound()
 	local c = 0
 	for k, ply in pairs(player.GetAll()) do
-		if ply:Team() != 1 then // ignore spectators
+		if ply:Team() != 1 then -- ignore spectators
 			c = c + 1
 		end
 	end
@@ -89,7 +89,7 @@ function GM:SetupRound()
 
 	local i = 1
 	for k, ply in pairs(player.GetAll()) do
-		if ply:Team() != 1 then // ignore spectators
+		if ply:Team() != 1 then -- ignore spectators
 			ply:SetNWBool("RoundInGame", true)
 			ply:KillSilent()
 			ply:Spawn()
@@ -176,10 +176,10 @@ function GM:EndRound(reason, winner)
 end
 
 function GM:RoundsSetupPlayer(ply)
-	// start off not participating
+	-- start off not participating
 	ply:SetNWBool("RoundInGame", false)
 
-	// send game state
+	-- send game state
 	net.Start("gamestate")
 	net.WriteUInt(self.GameState, 32)
 	net.WriteDouble(self.StateStart)
@@ -211,7 +211,7 @@ function GM:RoundsThink()
 	if self:GetGameState() == 0 then
 		local c = 0
 		for k, ply in pairs(player.GetAll()) do
-			if ply:Team() != 1 then // ignore spectators
+			if ply:Team() != 1 then -- ignore spectators
 				c = c + 1
 			end
 		end

@@ -6,7 +6,7 @@ function GM:RealismThink()
 			local running = ply:GetVelocity():LengthSqr() > 1
 			local onground = ply:OnGround()
 
-			// don't increase velocity when jumping off ground
+			-- don't increase velocity when jumping off ground
 			if ply:KeyPressed(IN_JUMP) && ply.PrevOnGround then
 				ply.LastJump = CurTime()
 
@@ -21,7 +21,7 @@ function GM:RealismThink()
 	end
 end
 
-// minimum velocity to trigger function is 530
+-- minimum velocity to trigger function is 530
 function GM:GetFallDamage( ply, vel )
 	return 0
 end

@@ -1,8 +1,8 @@
 GM.Name 	= "Melonbomber"
 GM.Author 	= "MechanicalMind"
-// Credits to waddlesworth for the logo and icon
+-- Credits to waddlesworth for the logo and icon
 GM.Email 	= ""
-GM.Website 	= "http://codingconcoctions.com/melonbomber/"
+GM.Website 	= "http:-- codingconcoctions.com/melonbomber/"
 GM.Version 	= "1.3.3"
 GM.GCCEntryID = 3
 
@@ -26,7 +26,7 @@ function GM:ShouldCollide(ent1, ent2)
 	if !IsValid(ent1) then return true end
 	if !IsValid(ent2) then return true end
 
-	// nocollide melons you are standing on
+	-- nocollide melons you are standing on
 	if ent1:IsPlayer() && ent2:GetClass() == "mb_melon" then
 		if ent2:GetNWBool("MelonCollide" .. ent1:EntIndex()) then
 			return true
@@ -40,7 +40,7 @@ function GM:ShouldCollide(ent1, ent2)
 		return false
 	end
 
-	// nocollide players
+	-- nocollide players
 	if ent1:IsPlayer() && ent2:IsPlayer() then
 		return false
 	end

@@ -114,7 +114,7 @@ function GM:ChooseSpectatee(ply)
 		end
 	end
 
-	// if invalid or dead
+	-- if invalid or dead
 	if !IsValid(ply:GetCSpectatee()) then
 		self:SpectateNext(ply)
 	end

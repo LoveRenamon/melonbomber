@@ -41,11 +41,11 @@ local function addPlayerItem(self, mlist, ply)
 			if ply:IsMuted() then
 				surface.SetMaterial(muted)
 
-				// draw shadow
+				-- draw shadow
 				-- surface.SetDrawColor(color_black)
 				-- surface.DrawTexturedRect(s + 1, h / 2 - 16 + 1, 32, 32)
 
-				// draw mute icon
+				-- draw mute icon
 				surface.SetDrawColor(150, 150, 150, 255)
 				surface.DrawTexturedRect(s, h / 2 - 16, 32, 32)
 				s = s + 32 + 4
@@ -94,7 +94,7 @@ local function doPlayerItems(self, mlist)
 			del = true
 		end
 	end
-	// make sure the rest of the elements are moved up
+	-- make sure the rest of the elements are moved up
 	if del then
 		timer.Simple(0, function() mlist:GetCanvas():InvalidateLayout() end)
 	end
@@ -134,7 +134,7 @@ local function makeTeamList(parent)
 		
 	end
 
-	// child positioning
+	-- child positioning
 	local canvas = mlist:GetCanvas()
 	canvas:DockPadding(0, 0, 0, 0)
 	function canvas:OnChildAdded( child )

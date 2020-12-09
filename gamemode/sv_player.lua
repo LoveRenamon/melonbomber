@@ -111,7 +111,7 @@ function GM:PlayerSetupHands(ply)
 end
 
 function PlayerMeta:CalculateSpeed()
-	// set the defaults
+	-- set the defaults
 	local settings = {
 		walkSpeed = 160,
 		runSpeed = 300,
@@ -126,7 +126,7 @@ function PlayerMeta:CalculateSpeed()
 	hook.Call("PlayerCalculateSpeed", ply, settings)
 
 
-	// set out new speeds
+	-- set out new speeds
 	if settings.canRun then
 		self:SetRunSpeed(settings.runSpeed or 1)
 	else
@@ -146,7 +146,7 @@ end
 
 function GM:DoPlayerDeath(ply, attacker, dmginfo)
 
-	ply:Freeze(false) // why?, *sigh*
+	ply:Freeze(false) -- why?, *sigh*
 	
 	ply:CreateRagdoll()
 
@@ -388,7 +388,7 @@ function GM:PlayerDeath(ply, inflictor, attacker )
 	ply.NextSpawnTime = CurTime() + 1
 	ply.DeathTime = CurTime()
 
-	// time until player can spectate another player
+	-- time until player can spectate another player
 	ply.SpectateTime = CurTime() + 2
 
 	if IsValid(attacker) && attacker:IsPlayer() && attacker != ply then

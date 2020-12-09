@@ -34,10 +34,10 @@ function Gen:spawnProp(pos, ang, mdl, opts)
 	return ent
 end
 
-// 0 is neg y
-// 1 is pos x
-// 2 is pos y
-// 3 is neg x
+-- 0 is neg y
+-- 1 is pos x
+-- 2 is pos y
+-- 3 is neg x
 
 function Gen:createBox(x, y, strength, explosive)
 	local angles = Angle(0, 0, 0)
@@ -148,7 +148,7 @@ function Gen:generate()
 	local grid = MapMakerGrid(minx, miny, minx + self.width, miny + self.height)
 	maptype:generateMap(grid)
 
-	// generate map
+	-- generate map
 	for x = grid.minx, grid.maxx do
 		for y = grid.miny, grid.maxy do
 			if grid:isWall(x, y) then
@@ -163,7 +163,7 @@ function Gen:generate()
 		end
 	end
 
-	// generate walls around map
+	-- generate walls around map
 	for i = -self.grid.sizeLeft - 1, self.grid.sizeRight + 1 do 
 		self:createWall(i, -self.grid.sizeUp - 1, 2)
 		self:createWall(i, self.grid.sizeDown + 1, 2)
@@ -176,5 +176,5 @@ function Gen:generate()
 
 end
 
-// capture point
-// models/props_combine/combinecrane002.mdl
+-- capture point
+-- models/props_combine/combinecrane002.mdl

@@ -62,7 +62,7 @@ local function addPlayerItem(self, mlist, ply)
 				local x, y = self:LocalToScreen(0, 0)
 				render.SetScissorRect(x, y, x + s + 32 * (0.5 + v / 2), y + h, true)
 
-				// draw mute icon
+				-- draw mute icon
 				surface.SetMaterial(unmuted)
 				surface.SetDrawColor(255, 255, 255, 255)
 				-- surface.SetDrawColor(255, 255, 255, 255 * math.Clamp(v, 0.1, 1))
@@ -74,19 +74,19 @@ local function addPlayerItem(self, mlist, ply)
 
 			if ply:IsMuted() then
 
-				// draw mute icon
+				-- draw mute icon
 				surface.SetMaterial(muted)
 				surface.SetDrawColor(255, 255, 255, 255)
 				surface.DrawTexturedRect(s, h / 2 - 16, 32, 32)
 				s = s + 32 + 4
 			end
 
-			// render ping icon
+			-- render ping icon
 			surface.SetMaterial(ping)
 			surface.SetDrawColor(255, 255, 255, 255)
 			surface.DrawTexturedRect(w * 0.8, h / 2 - 8, 16, 16)
 
-			// draw ping
+			-- draw ping
 			draw.SimpleText(ply:Ping(), "RobotoHUD-L16", w * 0.8 + 4 + 16, h / 2, color_white, 0, 1)
 
 			surface.SetMaterial(score)
@@ -134,7 +134,7 @@ local function doPlayerItems(self, mlist)
 			del = true
 		end
 	end
-	// make sure the rest of the elements are sorted and moved up to fill gaps
+	-- make sure the rest of the elements are sorted and moved up to fill gaps
 	if del || add then
 		timer.Simple(0, function() 
 			local childs = mlist:GetCanvas():GetChildren()
@@ -223,7 +223,7 @@ function GM:CreateEndRoundMenu()
 	function leftpnl:Paint(w, h)
 	end
 
-	// player list section
+	-- player list section
 	local listpnl = vgui.Create("DPanel", leftpnl)
 	listpnl:Dock(FILL)
 	listpnl:DockPadding(10, 10, 10, 10)
@@ -259,7 +259,7 @@ function GM:CreateEndRoundMenu()
 		child:DockMargin(0, 0, 0, 4)
 	end
 
-	// chat section
+	-- chat section
 	local pnl = vgui.Create("DPanel", leftpnl)
 	pnl:Dock(BOTTOM)
 	pnl:DockMargin(0, 20, 0, 0)
@@ -361,7 +361,7 @@ function GM:CreateEndRoundMenu()
 		end
 	end
 
-	// results section
+	-- results section
 	local respnl = vgui.Create("DPanel", menu)
 	menu.ResultsPanel = respnl
 	respnl:Dock(FILL)
@@ -388,7 +388,7 @@ function GM:CreateEndRoundMenu()
 	end
 
 
-	// map vote
+	-- map vote
 	local votepnl = vgui.Create("DPanel", respnl)
 	menu.VotePanel = votepnl
 	votepnl:Dock(FILL)

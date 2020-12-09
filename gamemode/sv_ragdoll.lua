@@ -38,7 +38,7 @@ end
 function PlayerMeta:CreateRagdoll(attacker, dmginfo)
 	local ent = self:GetNWEntity("DeathRagdoll")
 
-	// remove old player ragdolls
+	-- remove old player ragdolls
 	if !self.DeathRagdolls then self.DeathRagdolls = {} end
 	local countPlayerRagdolls = 1
 	for k,rag in pairs(self.DeathRagdolls) do
@@ -60,7 +60,7 @@ function PlayerMeta:CreateRagdoll(attacker, dmginfo)
 		end
 	end
 
-	// remove old server ragdolls
+	-- remove old server ragdolls
 	local c2 = 1
 	for k,rag in pairs(GAMEMODE.DeathRagdolls) do
 		if IsValid(rag) then
@@ -98,7 +98,7 @@ function PlayerMeta:CreateRagdoll(attacker, dmginfo)
 	ent.Corpse.CauseDeath = ""
 	if dmginfo then
 		local t = dmginfo:GetDamageType()
-		// do bitmasks
+		-- do bitmasks
 	end
 	ent.Corpse.Attacker = ""
 	if IsValid(attacker) && attacker:IsPlayer() then
@@ -113,7 +113,7 @@ function PlayerMeta:CreateRagdoll(attacker, dmginfo)
 		-- inflicter doesn't work, do on GM:PlayerDeath
 	end
 
-	// set velocities
+	-- set velocities
 	local Vel = self:GetVelocity()
 
 	local iNumPhysObjects = ent:GetPhysicsObjectCount()
@@ -131,7 +131,7 @@ function PlayerMeta:CreateRagdoll(attacker, dmginfo)
 
 	end
 
-	// finish up
+	-- finish up
 	self:SetNWEntity("DeathRagdoll", ent )
 	table.insert(self.DeathRagdolls,ent)
 	table.insert(GAMEMODE.DeathRagdolls,ent)

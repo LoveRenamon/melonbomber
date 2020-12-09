@@ -35,7 +35,7 @@ function GM:AddRoundStatistic(secondsPlayed, numPlayers)
 	end
 end
 
-function comma_value(n) -- credit http://richard.warburton.it
+function comma_value(n) -- credit http:-- richard.warburton.it
 	local left,num,right = string.match(tostring(n),'^([^%d]*%d)(%d*)(.-)$')
 	return left..(num:reverse():gsub('(%d%d%d)','%1,'):reverse())..right
 end

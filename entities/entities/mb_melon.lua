@@ -182,9 +182,9 @@ function ENT:Think()
 		for k, ply in pairs(player.GetAll()) do
 			if ply:Alive() && !self:GetNWBool("MelonCollide" .. ply:EntIndex()) then
 				local t = self:GetPos() - ply:GetPos()
-				// 18 is half block
-				// 35 is half player width
-				// 1 is hacky fix
+				-- 18 is half block
+				-- 35 is half player width
+				-- 1 is hacky fix
 				local d = 18 + 10 + 1
 				if math.abs(t.x) < d && math.abs(t.y) < d then
 
@@ -263,7 +263,7 @@ function ENT:StartTouch(ent)
 	if ent:IsPlayer() && ent:HasUpgrade(8) then
 		if IsValid(phys) then
 			if !self:GetKicking() then
-				// get the direction
+				-- get the direction
 				local ang = (self:GetPos() - ent:GetPos()):Angle()
 				ang.p = 0
 				ang.y = math.Round(ang.y / 90) * 90
@@ -295,15 +295,15 @@ function ENT:Explode(zone, combiner)
 	self:Remove()
 end
 
-// big chunks
-// models/props_junk/watermelon01_chunk01a.mdl
-// models/props_junk/watermelon01_chunk01b.mdl
-// models/props_junk/watermelon01_chunk01c.mdl
+-- big chunks
+-- models/props_junk/watermelon01_chunk01a.mdl
+-- models/props_junk/watermelon01_chunk01b.mdl
+-- models/props_junk/watermelon01_chunk01c.mdl
 
-// little chunks
-// models/props_junk/watermelon01_chunk02a.mdl
-// models/props_junk/watermelon01_chunk02b.mdl
-// models/props_junk/watermelon01_chunk02c.mdl
+-- little chunks
+-- models/props_junk/watermelon01_chunk02a.mdl
+-- models/props_junk/watermelon01_chunk02b.mdl
+-- models/props_junk/watermelon01_chunk02c.mdl
 
 function ENT:Use( ply, caller )
 end
@@ -316,7 +316,7 @@ function ENT:SetBombOwner(ply)
 	self:SetNWEntity("BombOwner", ply)
 end
 
-// work around so we don't have to use NWBool
+-- work around so we don't have to use NWBool
 function ENT:SetBombBool(power, bool)
 	-- self:SetNWBool("BombPierce", bool)
 	local value = self:GetNWInt("BombBools")

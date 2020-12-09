@@ -119,5 +119,5 @@ function pick:DrawDecor(ent)
 	end
 end
 
-// remote detonation
-// models/props_rooftop/roof_dish001.mdl
+-- remote detonation
+-- models/props_rooftop/roof_dish001.mdl

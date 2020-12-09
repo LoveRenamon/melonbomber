@@ -46,7 +46,7 @@ function SWEP:GetTrace(left, up)
 	end
 	local vec = ang:Forward()
 	trace.endpos = trace.start + vec * 60
-	//trace.mask = MASK_SHOT
+	-- trace.mask = MASK_SHOT
 	local tr = util.TraceLine(trace)
 	tr.TraceAimVector = vec
 	tr.LeftUp = Vector(left or 0, up or 0, 0)
@@ -92,7 +92,7 @@ function SWEP:AttackTrace()
 	local tr = util.TraceHull(trace)
 	tr.TraceAimVector = self.Owner:GetAimVector()
 
-	// aim around
+	-- aim around
 	if !IsValid(tr.Entity) then tr = self:GetTrace() end
 	if !IsValid(tr.Entity) then tr = self:GetTrace(10,0) end
 	if !IsValid(tr.Entity) then tr = self:GetTrace(-10,0) end
@@ -101,7 +101,7 @@ function SWEP:AttackTrace()
 	if tr.Hit then
 		self.Owner:ViewPunch(Angle(0, 3, 0))
 		if IsValid(tr.Entity) then
-			// only play the sound for the murderer
+			-- only play the sound for the murderer
 			if CLIENT && LocalPlayer() == self.Owner then
 				self:EmitSound("Weapon_Crowbar.Melee_Hit")
 			end
@@ -127,7 +127,7 @@ function SWEP:AttackTrace()
 		end
 		util.Decal("ManhackCut", self.Owner:GetShootPos(), self.Owner:GetShootPos() + self.Owner:GetAimVector() * 60)
 	else
-		// only play the sound for the murderer
+		-- only play the sound for the murderer
 		if CLIENT && LocalPlayer() == self.Owner then
 			self:EmitSound("Weapon_Crowbar.Single")
 		end

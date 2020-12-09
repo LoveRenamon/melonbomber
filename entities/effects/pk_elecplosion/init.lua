@@ -25,7 +25,7 @@ function EFFECT:Init( data )
 		particle:SetStartSize( 5 )
 		particle:SetEndSize( 0 )   
 		particle:SetRoll( math.random(0,360) )
-		//particle:SetRollDelta( 0 )
+		-- particle:SetRollDelta( 0 )
 		if self.Mag > 1 then
 			particle:SetStartSize(6)
 		else
@@ -46,7 +46,7 @@ function EFFECT:Init( data )
 		particle:SetStartSize( 20 )
 		particle:SetEndSize( 25 )   
 		particle:SetRoll( math.random(0,360) )
-		//particle:SetRollDelta( 0 )
+		-- particle:SetRollDelta( 0 )
 		particle:SetColor( 255,255,255 )
 
 		if self.Mag > 1 then
@@ -71,7 +71,7 @@ function EFFECT:Init( data )
 		particle:SetStartSize( 30 )
 		particle:SetEndSize( 50 )   
 		particle:SetRoll( math.random(0,360) )
-		//particle:SetRollDelta( 0 )
+		-- particle:SetRollDelta( 0 )
 		particle:SetColor( 150, 150, 150 )
 		
 	end
@@ -100,7 +100,7 @@ function EFFECT:Think( )
 		-- particle:SetStartSize( 4 )
 		-- particle:SetEndSize( 0 )   
 		-- particle:SetRoll( math.random(0,360) )
-		-- //particle:SetRollDelta( 0 )
+		-- -- particle:SetRollDelta( 0 )
 		-- particle:SetColor( 255,255,255 )
 	end
 

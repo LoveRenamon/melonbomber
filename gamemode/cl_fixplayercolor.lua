@@ -17,7 +17,7 @@ matproxy.Add({
 
 	init	=	function( self, mat, values )
 
-		// Store the name of the variable we want to set
+		-- Store the name of the variable we want to set
 		self.ResultTo = values.resultvar
 
 	end,
@@ -26,7 +26,7 @@ matproxy.Add({
 
 		if ( !IsValid( ent ) ) then return end
 
-		if ( ent.GetPlayerColorOverride ) then // clientside entities can't override functions, so we need an additional one for it
+		if ( ent.GetPlayerColorOverride ) then -- clientside entities can't override functions, so we need an additional one for it
 			local col = ent:GetPlayerColorOverride()
 			if ( isvector( col ) ) then
 				mat:SetVector( self.ResultTo, col )

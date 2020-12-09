@@ -95,7 +95,7 @@ function GM:CreateExplosion(zone, x, y, length, bomb, combiner)
 				self:CombineExplosion(zone, nx, ny, bomb, combo)
 			end
 			if sq:GetClass() == "mb_melon" || sq:GetClass() == "mb_pickup" || (sq.gridBreakable && bomb.GetPierce && bomb:GetPierce()) then
-				// keep going if we have pierce and it was a box
+				-- keep going if we have pierce and it was a box
 			else
 				return true
 			end
@@ -104,22 +104,22 @@ function GM:CreateExplosion(zone, x, y, length, bomb, combiner)
 		end
 		return false
 	end
-	// x+
+	-- x+
 	for i = 1, length do
 		if boom(i, x + i, y) then break end
 	end
 
-	// x-
+	-- x-
 	for i = 1, length do
 		if boom(i, x - i, y) then break end
 	end
 
-	// y+
+	-- y+
 	for i = 1, length do
 		if boom(i, x, y + i) then break end
 	end
 
-	// y-
+	-- y-
 	for i = 1, length do
 		if boom(i, x, y - i) then break end
 	end
@@ -227,7 +227,7 @@ function GM:SpecificExplosion(zone, x, y, bomb, attacker)
 					dmg:SetDamage(400)
 					-- dmg:SetDamageType(DMG_BLAST)
 
-					// ulx likes to break stuff, thank you ulx
+					-- ulx likes to break stuff, thank you ulx
 					local b, err = pcall(ent.TakeDamageInfo, ent, dmg)
 					if !b then
 						print(err)
@@ -422,7 +422,7 @@ function GM:PlayerAltFire(ply)
 
 	if count > 0 && ply:HasUpgrade(7) then
 
-		// first first created bomb
+		-- first first created bomb
 		local firstBomb
 		for k, ent in pairs(ents.FindByClass("mb_melon")) do
 			if ent:GetBombOwner() == ply then
@@ -432,7 +432,7 @@ function GM:PlayerAltFire(ply)
 			end
 		end
 
-		// explode the first bomb
+		-- explode the first bomb
 		if firstBomb && firstBomb:GetCreateTime() + 1 < CurTime() then
 			firstBomb:Explode(zone, combo)
 		end
@@ -492,7 +492,7 @@ function GM:PlaceLineBomb(ply, zone, x, y, dir)
 			local t = Vector(sx * zone.grid.sqsize, sy * zone.grid.sqsize) + center
 			t.z = zone:OBBMins().z
 
-			// don't place through players
+			-- don't place through players
 			for k, ent in pairs(player.GetAll()) do
 				if ent != ply && ent:Alive() then
 					local s = zone.grid.sqsize / 2 - 1

@@ -3,7 +3,7 @@ include("sv_mapvote.lua")
 
 MapTypes = {}
 
-// inherit from _G
+-- inherit from _G
 local meta = {}
 meta.__index = _G
 meta.__newindex = _G
